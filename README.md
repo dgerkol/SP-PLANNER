@@ -1,7 +1,9 @@
 # SP-PLANNER
+
 A PXE automated system for installation of Linux &amp; Windows OS, based on modified binaries of Windows Server's WDS role &amp; Syslinux, with private package repositories for offline networks. 
 
 ### Requirements:
+
 To fully realize and execute this automated environment, some requirements and role installments must be met prior to integration of this project.
 This repository documentation will only list the basic requirements and will not cover any implementations steps of server roles, as they may vary from one organization policy and environment to another.
 
@@ -19,6 +21,7 @@ This repository documentation will only list the basic requirements and will not
 
 
 ### Project Installation:
+
 This repository is an example of a real working architecture and automation concept. 
 It is merely a file skeleton to serve as a POC of a workaround implementation issue of WDS based PXE for Linux installations and automations.
 
