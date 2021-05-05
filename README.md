@@ -2,7 +2,7 @@
 
 A PXE automated system for installation of Linux &amp; Windows OS, based on modified binaries of Windows Server's WDS role &amp; Syslinux, with private package repositories for offline networks. 
 
-### Requirements:
+## Requirements:
 
 To fully realize and execute this automated environment, some requirements and role installments must be met prior to integration of this project.
 This repository documentation will only list the basic requirements and will not cover any implementations steps of server roles, as they may vary from one organization policy and environment to another.
@@ -20,7 +20,7 @@ This repository documentation will only list the basic requirements and will not
    - NFS server role for hosting NFS storage shares that'll hold *squashfs* files (for OS installations that use a *"live install"* methods with *squashfs* files).
 
 
-### Project Installation:
+## Project Installation:
 
 This repository is an example of a real working architecture and automation concept. 
 It is merely a file skeleton to serve as a POC of a workaround implementation issue of WDS based PXE for Linux installations and automations.
@@ -33,5 +33,5 @@ Also: pay attention that any scripts, menu files, preseed files and overall any 
 - Some basic documentation resource links (such as WS roles, Debian install procedure, syslinux utilsand etc..) to be added soon.
 
 
-### General Workflow:
+## General Workflow:
 
