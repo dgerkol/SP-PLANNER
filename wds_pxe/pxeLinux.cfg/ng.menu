@@ -1,0 +1,41 @@
+MENU TITLE New Appliance: G CPU SP list
+#---
+label SP-G install
+menu label - SP1
+kernel /SP/G/SP1/vmlinuz
+append boot=casper netboot=nfs nfsroot=X.X.X.X:/1 vga=normal ip=::::::dhcp initrd=/SP/G/SP1/initrd.lz -- 
+#---
+label SP-G install
+menu label - SP2
+kernel /SP/G/SP2/vmlinuz
+append boot=casper netboot=nfs nfsroot=X.X.X.X:/2 vga=normal ip=::::::dhcp initrd=/SP/G/SP2/initrd.lz -- 
+#---
+label SP-G install
+menu label - SP3
+kernel /SP/G/SP3/vmlinuz
+append boot=casper netboot=nfs nfsroot=X.X.X.X:/3 vga=normal ip=::::::dhcp initrd=/SP/G/SP3/initrd.lz -- 
+#--- 
+label SP-G install
+menu label - SP4
+kernel /SP/G/SP4/vmlinuz
+append boot=casper netboot=nfs nfsroot=X.X.X.X:/4 vga=normal ip=::::::dhcp initrd=/SP/G/SP4/initrd.lz -- 
+#---
+label SP-G install
+menu label - SP5
+kernel /SP/G/SP5/vmlinuz
+append boot=casper netboot=nfs nfsroot=X.X.X.X:/5 vga=normal ip=::::::dhcp initrd=/SP/G/SP5/initrd.lz -- 
+#---
+label SP-G install
+menu label - SP6
+kernel /SP/G/SP6/vmlinuz
+append boot=casper netboot=nfs nfsroot=X.X.X.X:/6 vga=normal ip=::::::dhcp initrd=/SP/G/SP6/initrd.lz -- 
+#---
+label Back
+MENU LABEL Back to CPU list
+KERNEL vesamenu.c32
+APPEND pxelinux.cfg/graphics.conf pxelinux.cfg/nsp.menu
+#---
+LABEL Exit
+MENU LABEL Exit
+Kernel abortpxe.0
+#---

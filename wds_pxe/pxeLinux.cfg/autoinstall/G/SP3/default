@@ -1,0 +1,35 @@
+DEFAULT vesamenu.c32
+PROMPT 0
+NOESCAPE 0
+ALLOWOPTIONS 0
+# Timeout in units of 1/10 s
+TIMEOUT 50
+MENU MARGIN 2
+MENU WIDTH 45
+MENU ROWS 13
+MENU VSHIFT 7
+#MENU HSHIFT 10
+MENU TABMSGROW 21
+#MENU TIMEOUTROW 24
+MENU COLOR BORDER 30;44 #20ffffff #00000000 none
+MENU COLOR SCROLLBAR 30;44 #20ffffff #00000000 none
+MENU COLOR TITLE 0 #ffffffff #00000000 none
+MENU COLOR SEL 30;47 #40000000 #20ffffff
+MENU BACKGROUND 1.2.jpg
+MENU TITLE SP-Planner Deployment Services
+#---
+label SP-G install
+MENU DEFAULT
+menu label - SP3
+kernel /SP/G/SP3/vmlinuz
+append boot=casper netboot=nfs nfsroot=x.x.x.x:/3 vga=normal ip=::::::dhcp initrd=/SP/G/SP3/initrd.lz --  
+#---
+LABEL local
+MENU LABEL - Boot from local HD
+LOCALBOOT 0
+Type 0x80
+#---
+LABEL Exit
+MENU LABEL Exit
+Kernel abortpxe.0
+#---

@@ -1,0 +1,31 @@
+MENU TITLE Non-SP Deployment: OS list
+#---
+LABEL Ubuntu Server 18.04
+MENU LABEL - Ubuntu Server 18.04
+KERNEL vesamenu.c32
+APPEND pxelinux.cfg/graphics.conf pxelinux.cfg/us18.menu
+#---
+LABEL Ubuntu Desktop 18.04
+MENU LABEL - Ubuntu Desktop 18.04
+KERNEL vesamenu.c32
+APPEND pxelinux.cfg/graphics.conf pxelinux.cfg/ud18.menu
+#---
+LABEL Windows Server 2016
+MENU LABEL - Windows Server 2016
+KERNEL vesamenu.c32
+APPEND pxelinux.cfg/graphics.conf pxelinux.cfg/ws16.menu
+#---
+LABEL Windows 10 B.1904
+MENU LABEL - Windows 10 B.1904
+KERNEL vesamenu.c32
+APPEND pxelinux.cfg/graphics.conf pxelinux.cfg/w10.menu
+#---
+LABEL Back
+MENU LABEL Back to hardware list
+KERNEL vesamenu.c32
+APPEND pxelinux.cfg/default
+#---
+LABEL Exit
+MENU LABEL Exit
+Kernel abortpxe.0
+#---

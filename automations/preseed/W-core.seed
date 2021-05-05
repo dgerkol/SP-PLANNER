@@ -1,0 +1,14 @@
+d-i	netcfg/get_hostname	string	wcore
+
+# install wcore package (post installation)
+d-i preseed/late_command string in-target apt-get -y install wcore; \
+        in-target update-initramfs -u; \
+        in-target apt-get -y purge systemd; \
+        in-target apt-get -y install linux-headers-app-core linux-image-app-core; \
+        in-target apt-get remove -y linux-image-4.4.0-142-generic; \
+        in-target update-grub; \
+        in-target ln -s /boot/vmlinuz-app-core /vmlinuz; \
+        in-target ln -s /boot/initrd.img-app-core /initrd.img; \
+        in-target depmod
+
+d-i	preseed/include		string	W-skel.seed

@@ -1,0 +1,26 @@
+MENU TITLE New Appliance: CPU list
+#---
+LABEL W CPU 
+MENU LABEL - W CPU
+KERNEL vesamenu.c32
+APPEND pxelinux.cfg/graphics.conf pxelinux.cfg/nw.menu
+#---
+LABEL G CPU 
+MENU LABEL - G CPU
+KERNEL vesamenu.c32
+APPEND pxelinux.cfg/graphics.conf pxelinux.cfg/ng.menu
+#---
+LABEL Y CPU 
+MENU LABEL - Y CPU
+KERNEL vesamenu.c32
+APPEND pxelinux.cfg/graphics.conf pxelinux.cfg/ny.menu
+#---
+LABEL Back
+MENU LABEL Back to appliance list
+KERNEL vesamenu.c32
+APPEND pxelinux.cfg/default
+#---
+LABEL Exit
+MENU LABEL Exit
+Kernel abortpxe.0
+#---

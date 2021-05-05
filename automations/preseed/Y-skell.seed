@@ -1,0 +1,91 @@
+### locale configuration
+d-i	debian-installer/locale	string	en_US.UTF-8
+d-i	debian-installer/language	string	en_US:en
+d-i	debian-installer/country	string	US
+
+### Network configuration
+d-i netcfg/get_nameservers string auto
+d-i	netcfg/dhcp_options	select	auto
+d-i	netcfg/dhcp_failed	note
+d-i	netcfg/choose_interface	select	enp6s0
+d-i	netcfg/wireless_wep	string
+d-i netcfg/get_hostname string ycore
+d-i netcfg/get_domain string 
+
+### Mirror settings
+d-i mirror/country string manual
+d-i mirror/http/hostname string x.x.x.x
+d-i mirror/http/directory string /SP/Y/1
+
+#### Account setup
+d-i	passwd/root-login	boolean	true
+d-i	passwd/make-user	boolean	true
+d-i	passwd/root-password	password	1
+d-i	passwd/root-password-again	password	1
+d-i	passwd/user-fullname	string	spplanner
+d-i	passwd/username	string	spplanner
+d-i	passwd/user-password	string	1
+d-i	passwd/user-password-again	string	1
+d-i	user-setup/allow-password-weak	boolean	true
+
+## Clock and time zone setup
+d-i	clock-setup/utc	boolean	false
+d-i	clock-setup/ntp	boolean false
+d-i	time/zone	string	Asia/Jerusalem
+
+### Partioning
+d-i	partman-auto/choose-recipe	select	multi
+d-i	partman-auto/method	string	regular
+
+d-i	partman-auto/init_automatically_partition	select	/dev/sda
+partman-target	partman/mount-style	select	traditional
+partman-auto	partman-auto/disk	string	/dev/sda
+
+d-i	partman/confirm_write_new_label	boolean	true
+d-i	partman/choose_partition	select	finish
+
+d-i	partman/confirm	boolean	true
+d-i	partman/confirm_nooverwrite	boolean	true
+
+d-i partman-lvm/device_remove_lvm boolean true
+d-i partman-md/device_remove_md boolean true
+
+### Base system installation
+# Only basic language packs
+d-i	pkgsel/language-pack-patterns	string
+# No language support packages
+d-i	pkgsel/install-language-support	boolean	false
+# No auto updates
+d-i	pkgsel/update-policy	select	none
+d-i pkgsel/upgrade multiselect none
+
+### Apt setup
+d-i	apt-setup/main	boolean	true
+d-i	apt-setup/restricted	boolean	false
+d-i	apt-setup/universe	boolean true
+d-i	apt-setup/backports	boolean false
+d-i	apt-setup/multiverse	boolean false
+d-i apt-setup/security_host string
+d-i apt-setup/updates_host string
+d-i apt-setup/services-select none
+
+### Base system installation
+d-i	debian-installer/allow_unauthenticated	string true
+# Verbose output and no boot splash screen.
+d-i	debian-installer/quiet	boolean false
+d-i	debian-installer/splash	boolean false
+# Wait for two seconds in grub
+d-i	grub-installer/timeout	string 2
+
+### Package selection
+tasksel	tasksel/force-tasks	string server
+popularity-contest	popularity-contest/participate	boolean	false
+
+d-i	pkgsel/include	string	openssh-server vim g++ sysstat cifs-utils hexedit speedometer cgdb htop iperf upstart-sysv python-chardet nginx gunicorn python-flask whois ntp python-numpy
+
+### Finishing up the installation
+d-i	finish-install/reboot_in_progress	note
+
+#No output and no boot splash screen
+d-i	dabian-installer/quiet	boolean	true
+d-i	debian-installer/splash	boolean	true

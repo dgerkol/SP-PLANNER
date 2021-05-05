@@ -1,0 +1,41 @@
+MENU TITLE New Appliance: W CPU SP list
+#---
+label SP-core install
+menu label - SP1
+kernel /SP/W/SP1/linux
+append  url=http://x.x.x.x/SP/W/1/preseed/W-core.seed auto=true priority=critical netcfg/choose_interface=enp5s0 vga=normal initrd=/SP/W/SP1/initrd.gz -- IPAPPEND 2
+#---
+label SP-core install
+menu label - SP2
+kernel /SP/W/SP2/linux
+append  url=http://x.x.x.x/SP/W/2/preseed/W-core.seed auto=true priority=critical netcfg/choose_interface=enp5s0 vga=normal initrd=/SP/W/SP2/initrd.gz -- IPAPPEND 2
+#---
+label SP-core install
+menu label - SP3
+kernel /SP/W/SP3/linux
+append  url=http://x.x.x.x/SP/W/3/preseed/W-core.seed auto=true priority=critical netcfg/choose_interface=enp5s0 vga=normal initrd=/SP/W/SP3/initrd.gz -- IPAPPEND 2 
+#--- 
+label SP-core install
+menu label - SP4
+kernel /SP/W/SP4/linux
+append  url=http://x.x.x.x/SP/W/4/preseed/W-core.seed auto=true priority=critical netcfg/choose_interface=enp5s0 vga=normal initrd=/SP/W/SP4/initrd.gz -- IPAPPEND 2
+#---
+label SP-core install
+menu label - SP5
+kernel /SP/W/SP5/linux
+append  url=http://x.x.x.x/SP/W/5/preseed/W-core.seed auto=true priority=critical netcfg/choose_interface=enp5s0 vga=normal initrd=/SP/W/SP5/initrd.gz -- IPAPPEND 2
+#---
+label SP-core install
+menu label - SP6
+kernel /SP/W/SP6/linux
+append  url=http://x.x.x.x/SP/W/6/preseed/W-core.seed auto=true priority=critical netcfg/choose_interface=enp5s0 vga=normal initrd=/SP/W/SP6/initrd.gz -- IPAPPEND 2
+#---
+label Back
+MENU LABEL Back to CPU list
+KERNEL vesamenu.c32
+APPEND pxelinux.cfg/graphics.conf pxelinux.cfg/nsp.menu
+#---
+LABEL Exit
+MENU LABEL Exit
+Kernel abortpxe.0
+#---
