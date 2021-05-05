@@ -35,3 +35,27 @@ Also: pay attention that any scripts, menu files, preseed files and overall any 
 
 ## General Workflow:
 
+SP-PLANNER provides two work methods:
+1. **Manuall** PXE menu selection and boot order as configured in the [pxeLinux.cfg default](https://github.com/dgerkol/SP-PLANNER/blob/main/wds_pxe/pxeLinux.cfg/default) file:
+   - When Syslinux menu loads to user's screen they are able to manually select any menu entry they would like, including a standard Hard Drive boot or exit the PXE procedure and move on to the next boot order as configured in their BIOS/UEFI.
+   - If no selection is made (or generally no keyboard input recived within 10 seconds), a default option is configured to be selected: "Boot from local HD".
+
+2. **Automated** PXE menu selection:
+   - When using an automated selection for a Syslinux menu for a specific machine, that machine must be provided with a specific Syslinux menu that is intended only to it, and will not affect any other machines using out PXE service.
+     - Defining a specific menu for a specific machine is done by creating a menu file with target machine NIC MAC address as the name of the file.
+   - Users integrate their systems to call the [confpxe.ps1](https://github.com/dgerkol/SP-PLANNER/tree/main/automationsconfpxe.ps1] script using SSH or any other method, stating an aplliance id, and a desired util to be ran.
+     - In our project, every automation is ran seperatly and one time only, thus creating a one time specific menu file for a target machine and is removed after a fixed amount of time (optional).
+     - For this purpose we provide an [appliance MAC list](https://github.com/dgerkol/SP-PLANNER/blob/main/wds_pxe/pxeLinux.cfg/autoinstall/mac%20list) the script reads from, and creates a file based on list's entries.
+   - Our project offers three automation utils:
+     - **System installation**: when no util flag is sent to our script, is simply directs the target machine to download an installation kernel & initrd files, and begin a system installation form a pre-defind repository for that machine.
+     - **System LIVE-BOOT** of a custom made *squashfs* file - this is very useful if you would like to include OpenSSH-Server in your live system and study its resources with an external OS or perform automations on a remote filesystem with or without OS installed on it.
+     - **SP-UPDATER**: A custom made live system with a set of scripts defined as services that run on system init, mount a network storage, and run a set of network stored scripts, while logging every step executed by it.
+
+### Automated PXE menu selection workflow:
+
+![SP-PLANNER](https://github.com/dgerkol/SP-PLANNER/blob/main/design/SP-PLANNER.png)
+
+### Automated SP-UPDATER util:
+
+![SP-UPDATER](https://github.com/dgerkol/SP-PLANNER/blob/main/design/SP-UPDATER.png)
+
